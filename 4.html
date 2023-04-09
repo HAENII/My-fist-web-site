@@ -1,0 +1,189 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="HTML의 소개자료">
+<meta name="keywords" content="코딩,coding,생활코딩,프로그래밍,html,css,javascript">
+<meta name="author" content="egoing">
+<meta http-equiv="refresh" content="30">
+<meta name="viewport" content="width=device-width">
+<title>HTML</title>
+</head>
+
+<body>
+    <header>
+        <h1>HTML: TAG 사용법</h1>
+    </header>
+<section>
+<article>
+<h2>1. Table 태그의 사용법</h2>
+<p>아래 표는 Table 태그를 사용하여 만들었다. 가장 헷갈리는부분은 col과 row를 구분하는 것이었다.
+    col은 열, row는 행을 나타낸다. 하지만, table 태그는 크게 사용하는 부분이 아니라서, 그냥 있다는 것만 알아두자.
+</p>
+<table border="3">
+<thead>
+<th>이름</th><th>주소</th><th>성별</th><th>회비</th>
+</thead>
+<tbody>
+<tr>
+<td>김종현</td><td>대구</td><td rowspan="2">남자</td><td rowspan="3">500</td>
+</tr>
+<tr>
+<td>김현규</td><td>남해</td>
+</tr>
+<tr>
+<td>이진슬</td><td>경기</td><td>여자</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="3">합계</td><td>1500</td>
+</tr>
+</tfoot>
+</table>
+</article>
+
+<article>
+<h2>2. input 태그의 사용법</h2>
+<h3>2-1 input type="text" or "password" </h3>
+<p>아래는 input 태그 중 text와 password, textarea, submit를 사용하여 만들었다.</p>
+<form action="http://localhost/login.php" method="get">
+<p>아이디: <input type="text" name="id" value="Default"></p>
+<p>비밀번호: <input type="password" name="pwd" value="Default"></p>
+<p>주소: <input type="text" name="address" value="Default"></p>
+<p>위 세개의 컨트롤들은 각각 text 와 password를 포함하고있으며, 각 정보에 맞게 name을 설정해주었다. 추가로 value값을 디폴트로 적용하여 
+    사용자가 정보를 입력하기전에 Default가 노출되게 만들었다.
+</p>
+기타의견: <textarea cols="10" row="30">Default</textarea>
+<p>위 컨트롤은 textarea를 사용하여 만들었다. cols 10, row 30을 적용하여 글자수를 10개, 줄을 30줄로 고정하였다.</p>
+<input type="submit">
+<p>위 컨트롤은 input에 submit 값을 적용하여 만들었다. 추가로 method 태그를 활용해 개인정보가 들어있는 정보를 서버에 보낼때 링크에 개인정보가 드러나지않도록
+    method = post 로 지정해주었다. 
+</p>
+<p>input에서의 value는 미리 노출되는 정보를 나타냄. input 에서 링크에 나타나는 정보는 name이다.</p>
+</form>
+</article>
+
+<article>
+    <h2>option 활용법</h2>
+<h2> * 색상</h2>
+<form action="http://localhost/color.php">
+<select name="color">
+<option value="red">빨강</option>
+<option value="blue">파랑</option>
+<option value="green">초록</option>
+<input type="submit">
+</select>
+<p>option 태그를 활용하여 색상을 선택할 수 있는 컨트롤을 만들었다. 개인정보가 아니라서 method=get 유지.<br>
+    select로 지정한 name와 option의 value가 정보로써 보내지기 때문에,option 태그를 묶어주는 select가 필수이다. 
+    예시로 name=color이고 value=red 인 빨강을 선택하면 color=red 라는 값으로 보내짐. 
+<h2> * 색상2(다중선택)</h2>
+<select name="color2" multiple>
+<option value="red">빨강</option>
+<option value="blue">파랑</option>
+<option value="green">초록</option>
+</select>
+</p>
+<input type="submit">
+<p>다중 선택은 간단하게 select 뒤에 multiple을 추가해주면 끝.</p>
+</form>
+</article>
+
+<article>
+    <h2>2-2 input type= radio,checkbox</h2>
+<h2> * 색상 (단일선택)</h2>
+<form action="http://localhost/solocolor.php">
+빨강: <input type="radio" name="color" value="red">
+파랑: <input type="radio" name="color" value="blue" checked>
+초록: <input type="radio" name="color" value="green">
+
+<h2> * 옷 타입</h2>
+라운드넥: <input type="radio" name="clothes" checked>
+브이넥: <input type="radio" name="clothes">
+터틀넥: <input type="radio" name="clothes">
+<p>위 단일선택 박스는 radio 태그로 만들었다.<br>
+    radio태그는 은유적인 표현으로 옛날 라디오는 한 버튼을 누르면 다른 버튼은 팝업되었다고.. <br>그런 현상에서 이름을 빌렸기 때문에
+    이 태그는 한 컨트롤을 누르면 다른 컨트롤은 누를 수 없다. 다중선택이 불가능하다는 뜻.<br> name값과 value값을 지정하여 어떤 정보가 전송되는지 
+    확실히 드러날 수 있도록 하자!기본 디폴트값을 지정하기 위해 파랑 값에 checked를 추가해주었다.</p>
+
+<h2>사이즈(다중선택)</h2>
+95: <input type="checkbox" name="size" value="95">
+100: <input type="checkbox" name="size" value="100"checked>
+105: <input type="checkbox" name="size"value="105">
+<input type="submit">
+<p>위 다중선택은 checkbox를 활용했다. 사용법은 radio와 같고, radio와는 차이점은 같은 name을 공유하는 정보들끼리 다중선택이 가능하다는 점!<br>
+    radio는 같은 name을 공유하면 단일 선택만 가능하다!!</p>
+</form>
+</article>
+
+<article>
+    <h2>2-3. input button, reset, hidden</h2>
+    <h3>button, reset</h3>
+<form action="">
+    <input type="text">
+<input type="submit" value="전송">
+<input type="button" value="버튼">
+<input type="reset">
+</form>
+<p>기존 input text 컨트롤에 submit과 button, reset을 추가해주었다. submit과 button은 value 값을 따로 지정하여 사용자 가시성을 높였다.</p>
+<h3>hidden</h3>
+<form action="http://localhost/hidden.php">
+    <input type="text" name="id">
+    <input type="hidden" name="hide" value="jints">
+    <input type="submit">
+</form>
+<p>위 컨트롤은 hidden 태그를 사용하여 만들었다. 겉으로 보았을때는 컨트롤안에 값을 전송하는 것처럼 보이지만, 코드 속 value를 hide라는 name으로 지정하여 함께 
+    전송한다.<br> 어떤 정보를 숨긴채로 보내야 할 때 사용한다고 했다.
+</p>
+</article>
+<article>
+<h2>label 사용법!</h2>
+<form action="http://localhost/lable.php">
+    <p>
+        <label for="id_txt">text</label>: 
+        <input id="id_txt" type="text" name="id" value="default">
+    </p>
+    <p>
+        <label for="pwd_txt">password</label>: 
+        <input id="pwd_txt" type="password" name="pwd" value="default">
+    </p>
+    <p>
+        <label>
+            address: <input type="text" name="address" value="default">
+        </label>
+    </p>
+    <p>
+        <label for="txt_txt">textarea</label>:
+        <textarea name="text" id="txt_txt" cols="30" rows="2">defalut</textarea>
+    </p>
+    <p>
+        <label>
+        <input type="checkbox" name="color" value="red"> 빨강
+        </label>
+    </p>
+    <p>
+        <label for="color_txt">
+            <input type="checkbox" name="color1" value="blue" id="color_txt"> 파랑
+        </label>
+    </p>
+    <p>input 으로 지정한 컨트롤에 label을 지정하면 커서의 클릭범위를 늘려주는 역할을 할 수있다!<br>
+        체크박스나 라디오의 선택범위가 좁을때나 다중 입력을 요구할 때 범위를 늘려주어 사용자의 UI 사용 편의를 도울 수 있다.<br>
+        input 태그의 이름에 label 태그를 지정해주면됨! 지정 후 label for 로 열어주고, input id 로 닫아주는 느낌!꼭 기억해!!</p>
+        <p>사실 쉽게하는 법이 있음. label로 하위 요소들을 감싸주면 끝! 이게 간편하긴해 </p>
+</form>
+</article>
+
+<form action="http://localhost/method.php" method="post">
+    <input type="text" name="id">
+    <input type="password" name="pwd">
+    <input type="submit">
+</form>
+<form action="http://localhost/upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="profile">
+    <input type="submit">
+</form>
+</section>
+<footer>
+    알파이자 오메가 // <a href="https://www.youtube.com/@coohde" target="_blank">출처: 생활코딩 유튜브</a>
+</footer>
+</body>
+</html>
